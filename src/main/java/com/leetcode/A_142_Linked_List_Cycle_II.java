@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.HashSet;
+
 public class A_142_Linked_List_Cycle_II {
 
     static ListNode detectCycleWithTwoPointer(ListNode head) {
@@ -20,4 +22,18 @@ public class A_142_Linked_List_Cycle_II {
         }
         return null;
     }
+
+    static ListNode withHashSet(ListNode head) {
+        if (head == null) return null;
+        ListNode current = head;
+        HashSet<ListNode> set = new HashSet<>();
+        while (current != null) {
+            if (!set.add(current)) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+
 }
